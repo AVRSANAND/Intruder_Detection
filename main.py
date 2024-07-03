@@ -1,8 +1,8 @@
 import glob
-
 import cv2
 import time
 from send_mail import send_email
+
 video = cv2.VideoCapture(0)
 time.sleep(1)
 
@@ -47,7 +47,7 @@ while True:
     status_list = status_list[-2:]
 
     if status_list[0] == 1 and status_list[1] == 0:
-        send_email()
+        send_email(image_with_object)
 
     cv2.imshow("Vidoe", frame)
     key = cv2.waitKey(1)
