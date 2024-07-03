@@ -2,11 +2,13 @@ import smtplib
 from email.message import EmailMessage
 import imghdr
 
-email_sender = "@gmail.com"
-password = ""
-receiver = "@gmail.com"
+email_sender = "YOUR_GMAIL@gmail.com"
+password = "YOUR_PASSWORD"
+receiver = "YOUR_GMAIL@gmail.com"
 
 def send_email(image_path):
+
+    print("send_email function started")
 
     email_message = EmailMessage()
     email_message["Subject"] = "New Object Detected !"
@@ -23,6 +25,8 @@ def send_email(image_path):
     gmail.login(email_sender, password)
     gmail.sendmail(email_sender, receiver, email_message.as_string())
     gmail.quit()
+    print("send_email function ended")
+
 
 if __name__ == "__main__":
     send_email(image_path="images/image126.png")
